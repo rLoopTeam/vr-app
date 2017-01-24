@@ -5,6 +5,8 @@ public class up : MonoBehaviour
 {
 
     public GameObject platformObject;
+	public GameObject pressureVessel;
+
 
     // Use this for initialization
     void Start()
@@ -20,6 +22,12 @@ public class up : MonoBehaviour
 
     public void MoveUp()
     {
-        platformObject.transform.position += new Vector3(0f, 1f, 0f);
+		if (platformObject.transform.position.y < 4f) {
+			platformObject.transform.position += new Vector3 (0f, 1f, 0f);
+		}
+		if (platformObject.transform.position.y > 4f && pressureVessel.transform.position.y < 3f) {
+			pressureVessel.transform.position += new Vector3 (0f, 1f, 0f);
+		}
+
     }
 }
